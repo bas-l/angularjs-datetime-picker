@@ -232,11 +232,11 @@
         if (!scope.selectedDate || isNaN(scope.selectedDate.getTime())) { // no predefined date
           var today = new Date();
           var year = scope.year || today.getFullYear();
-          var month = scope.month ? (scope.month-1) : today.getMonth();
+          var month = scope.month ? (scope.month - 1) : today.getMonth();
           var day = scope.day || today.getDate();
-          var hour = scope.hour || today.getHours();
-          var minute = scope.minute || today.getMinutes();
-          var seconds = scope.seconds || today.getSeconds();
+          var hour = scope.hour == 0 ? 0 : (scope.hour || today.getHours());
+          var minute = scope.minute == 0 ? 0 : (scope.minute || today.getMinutes());
+          var seconds = scope.seconds == 0 ? 0 : (scope.seconds || today.getSeconds());
           scope.selectedDate = new Date(year, month, day, hour, minute, seconds);
         }
         scope.inputHour   = scope.selectedDate.getHours();
