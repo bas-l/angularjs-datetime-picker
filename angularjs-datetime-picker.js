@@ -12,8 +12,8 @@
     var offset = isDST ? stdTimezoneOffset - 60 : stdTimezoneOffset;
     var diff = offset >=0 ? '-' : '+';
     return diff +
-      ("0"+ (offset / 60)).slice(-2) + ':' +
-      ("0"+ (offset % 60)).slice(-2);
+      ("0"+ (Math.abs(offset) / 60)).slice(-2) + ':' +
+      ("0"+ (Math.abs(offset) % 60)).slice(-2);
   };
 
   var DatetimePicker = function($compile, $document, $controller){
